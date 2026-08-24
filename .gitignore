@@ -1,0 +1,12 @@
+# ── Audion Windows Tools by Max.mov ──
+# Source, docs, small functional assets (.pow, scripts), and PDFs are tracked.
+# Only heavy/regenerated/runtime artifacts are excluded — ship those in the Release bundle.
+
+# Portable PowerShell 7 — regenerated locally by Install\Install-Portable-PowerShell.cmd
+Engine/PowerShell/
+
+# Heavy media resources (wallpapers, cursors, profiles, gaming pack) — Release bundle only
+Assets/MaxMov/
+
+# Local runtime state — tweak backups and theme/lang preferences
+Data/
