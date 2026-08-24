@@ -1,0 +1,15 @@
+SOURCE CODE AND UPSTREAM AVAILABILITY
+================================================================================
+
+Project: Audion Windows Tools by Max.mov (audion-windows-tools-by-max-mov)
+
+This file is generated from component profiles. It is an engineering
+record and does not replace review of the applicable license terms.
+
+BUNDLED COMPONENTS WITH SOURCE REFERENCES
+--------------------------------------------------------------------------------
+No bundled component supplied a source-reference profile.
+
+OPTIONAL RUNTIME COMPONENTS
+--------------------------------------------------------------------------------
+No optional runtime source records registered.

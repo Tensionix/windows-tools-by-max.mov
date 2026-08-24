@@ -1,0 +1,196 @@
+---
+name: audion-windows-tools
+description: Configure a Windows machine through Audion Windows Tools by Max.mov - report what is already set, apply the settings that have exactly one sensible answer, ask the user about the ones that do not, and hand the genuinely manual steps back to them. Use when setting up a fresh Windows install, auditing an existing one, or reverting tweaks this tool applied.
+---
+
+# Audion Windows Tools by Max.mov - agent contract
+
+This file is written for **any** agent, not for one product. It assumes nothing but a Windows shell
+and the ability to run PowerShell and talk to the user.
+
+The program is a companion to Max.mov's nine-hour Windows setup guide. It ships 308 cards. Most of
+them **teach**: they open the right page and explain what to do there. A minority **act**. Your job
+is to carry out the acting ones and to stay out of the way of the teaching ones.
+
+Talk to the user in the language they write to you in. This file is English because every other
+technical artifact in this project is.
+
+---
+
+## 1. Before anything else
+
+**The session must be elevated.** Most cards write to `HKLM`, and there is no way around that. Check
+it first and stop if it is false - do not try to work around it, do not apply half the profile:
+
+```powershell
+([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole(
+    [Security.Principal.WindowsBuiltInRole]::Administrator)
+```
+
+If it returns `False`, tell the user to restart their agent session as administrator and stop. The
+runner will refuse admin cards anyway and mark them `skipped`, which wastes a pass.
+
+**Find the program from this file, never from a hard-coded path.** This folder is
+`<program root>\Skill\`, so the root is its parent. The program is portable - it can sit on any
+drive, in any project folder, visible or hidden. Resolve, do not assume:
+
+```powershell
+$Root   = Split-Path (Split-Path $PSCommandPath -Parent) -Parent   # or the folder holding this file
+$Runner = Join-Path $Root 'Engine\Invoke-TweakProfile.ps1'
+```
+
+---
+
+## 2. The only tool you use
+
+`Engine\Invoke-TweakProfile.ps1`. It loads the engine without opening a window, asks each card what
+state the machine is really in, and changes nothing unless told to.
+
+| Command | What it does |
+|---|---|
+| `-Discover` | Lists all 62 automatable cards, grouped by section, flagged `admin` / `NO REVERT` |
+| `-ProfilePath <psd1>` | Reports the state of every card in a profile. **Changes nothing.** |
+| `-ProfilePath <psd1> -Apply` | Applies the cards that are not applied yet |
+| `-Only <id[,id]>` | Restricts the run to those ids |
+| `-Json` | Machine-readable output - use this, then present it in the user's language |
+| `-IncludeIrreversible` | Permits cards with no `Revert`. Requires the user's explicit consent |
+
+Exit codes: `0` nothing left to do, `1` cards still need applying, `2` something failed, `3` the
+profile or engine would not load, `4` `-Apply` needs an elevated session and this one is not.
+
+**The runner never raises a UAC prompt of its own, and neither should you.** Elevation is a property
+of the session. A sixty-card profile driven by per-operation elevation would mean sixty prompts,
+which is worse than useless. If exit code `4` comes back, tell the user to restart the session as
+administrator - do not fall back to elevating each card, and do not silently apply only the
+non-admin half.
+
+Do not import `Engine\TweakEngine.psm1` and call it yourself. The runner already handles engine
+initialisation, system-profile applicability, elevation checks, failure detection and re-verification.
+Bypassing it means losing all of that.
+
+---
+
+## 3. The three kinds of card
+
+Read `Kind` and act accordingly. Never argue with it.
+
+**Automatable (62)** - `registry`, `service`, `feature`, `powerscheme`, `script`. The engine performs
+these. They detect their own state, so re-running is free and honest.
+
+**The human's job (245)** - `link`, `deeplink`, `manual`, `docs`. A `deeplink` opens a Settings page;
+a `manual` card is a checklist item. **Do not automate these by clicking through the GUI.** No mouse
+automation, no keystroke injection, no screenshot-driven navigation. If a card is one of these, give
+the user the page and the exact toggle, and let them do it. Clicking blind through system dialogs has
+no `Detect` to verify it and no `Revert` to undo it - it is strictly worse than the human doing it.
+
+**Impossible (a few)** - setting the default browser and file associations cannot be automated at
+all. Windows protects `UserChoice` with a hash. Say so plainly rather than trying.
+
+---
+
+## 4. How to run a session
+
+1. **Check elevation.** Stop if not elevated.
+2. **Report first, always.** Run with `-ProfilePath ... -Json` and show the user what is already
+   set and what would change. Never let `-Apply` be the first thing that runs.
+3. **Interview about the ambiguous ones** (see section 5) and write their answers into a profile.
+4. **Apply.** `-ProfilePath ... -Apply`.
+5. **Prove it.** Run the report again and show the before/after. The runner re-checks `Detect` after
+   every apply, so a card that says `applied` really is.
+6. **Report failures out loud.** If a card comes back `failed`, say which one and what it said. Do
+   not retry silently, and do not describe a run as successful when it was not.
+
+A profile is a `.psd1` holding one hashtable with `Name`, `Description`, an ordered `Cards` list of
+ids, and an optional `Extends` naming a parent profile beside it. Parent cards run first, then the
+child's; an id in both keeps its earliest position. Order matters - some cards are steps in a
+sequence.
+
+Two ship:
+
+- `privacy-baseline.psd1` - 14 cards that turn off what phones home and what runs uninvited. All
+  reversible, none a matter of taste.
+- `typical-machine.psd1` - extends the baseline with Chrome and clipboard history. Deliberately says
+  nothing about power scheme, indexing or personalization; those are asked about, never assumed.
+
+Write new ones beside them, and prefer `Extends` over copying ids - a copied list drifts from the
+file it was copied out of, and nothing will tell you.
+
+Profiles are loaded through the engine's own data-file reader, which accepts exactly one hashtable
+literal and **cannot execute code**. Keep it that way - never put script blocks in a profile.
+
+---
+
+## 5. What to ask the user about
+
+These are automatable but have no single right answer. Ask, then act. A checkbox or a numbered list
+is better than an open question. The defaults below come from the project owner - follow them unless
+the user says otherwise.
+
+**Power scheme - default is to change nothing.** Windows' own Balanced scheme is the right answer
+for almost everyone. The nine `power-scheme-*` cards are mutually exclusive enthusiast presets;
+offer them only if the user raises the subject, and then at most one.
+
+**Browser - anything but Edge, and in practice Chrome.** Five cards install one via winget:
+`install-chrome`, `install-brave`, `install-firefox`, `install-vivaldi`, `install-opera`. Ask which;
+if the user has no preference, Chrome is the safe assumption. Note that installing a browser does not
+make it the default - Windows will not let any tool do that (see section 3).
+
+**Search indexing - default is to leave it alone.** `indexing-disable-service` is a real trade-off,
+not an obvious win, and most people never think about it. The users who do usually want Everything
+from voidtools instead: `personalization-everything-search`, plus
+`personalization-everything-powertoys-plugin` if they use PowerToys Run. Both are `link` cards, so
+they are the human's job - point at them rather than trying to install anything.
+
+**Personalization - always ask, never assume.** Every `personalization-*` card is taste, and taste
+does not generalise. Present them as a list and apply only what is picked.
+
+**Clipboard history, Storage Sense** - preferences; both directions are defensible.
+
+**Anything flagged `NO REVERT`** - name the card, say plainly that it cannot be undone, and get an
+explicit yes for that card before passing `-IncludeIrreversible`.
+
+Cards that merely open a folder for the user (`maxmov-open-*`, `startup-*-folder`) are automatable in
+the technical sense but pointless in an unattended profile. Leave them out unless asked.
+
+---
+
+## 6. Hard rules
+
+- **Never `-Apply` without having shown the report first.**
+- **Never pass `-IncludeIrreversible`** unless the user consented to that specific card by name.
+  `remove-edge-step2-takeown` in particular takes ownership of system files.
+- **Never delete or clear `Data\backups`.** Each file there is the only record of what a setting held
+  before a tweak changed it, and the original value is already overwritten on the machine. It is not
+  a cache. `cleanup_project.cmd` wipes it by design - if you ever need to run that script, pass
+  `/KEEPBACKUPS`.
+- **Never edit the manifests** to make something automatable mid-session. If a card is a `deeplink`,
+  it is a `deeplink` for this run. Converting it is a deliberate change to the product, with its own
+  documentation and tests.
+- **Never claim a card worked because the command returned.** The runner verifies with `Detect`;
+  trust that, not the absence of an error.
+- **A green state you did not cause is still green.** If a card reports `already`, the machine was
+  like that before. Do not present it as your doing, and be aware that turning such a toggle off will
+  report that there is no recorded previous value to restore - because there is not.
+
+---
+
+## 7. Reverting
+
+The GUI is the intended path for undo, but the engine can do it headlessly. Every `registry`,
+`service`, `feature` and `powerscheme` card records what it found before it changed anything, and
+puts exactly that back - including deleting a value or a key that did not exist. `script` cards revert
+only if they declare a `Revert` block; `-Discover` flags the ones that do not.
+
+If the user wants everything undone, do it card by card and show the result of each. There is no
+"revert all" and you should not build one - a blanket rollback across 60 cards is precisely the kind
+of unverifiable sweep this contract exists to prevent.
+
+---
+
+## 8. Where to read more
+
+- `Docs\USER_GUIDE_RU.md` / `_EN.md` - every card described by id, with what it changes.
+- `CHANGELOG.md` - why things are the way they are.
+- `AGENTS.md` - project rules, versioning.
+- `Tests\Smoke.ps1` - run it after any change to the project itself. It is development-side only; the
+  program never calls into `Tests\`.

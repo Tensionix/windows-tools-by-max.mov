@@ -1,0 +1,15 @@
+[
+  {
+    "name": "PowerShell",
+    "version": "portable",
+    "license": "MIT",
+    "source": "baseline-runtime",
+    "license_files": [
+      "licenses/THIRD_PARTY_NOTICES.txt"
+    ],
+    "license_fingerprint": "d0683d9983a55f60dd8ef9ea38091fb4a6bc54ede806b3e832ec73fb2cd3c143",
+    "legal_document_hashes": [
+      "7c77a44a8acd9b41fdc209864a8016b3d430b5d0e09309818d5b7444336df744"
+    ]
+  }
+]

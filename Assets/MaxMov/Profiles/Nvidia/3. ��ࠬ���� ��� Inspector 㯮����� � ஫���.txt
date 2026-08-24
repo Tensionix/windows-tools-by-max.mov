@@ -1,0 +1,13 @@
+Данные параметры были упомянуты и протестированны в ролике. И не дали существенных результатов.
+Они добавлены сюда не в качестве рекомендации, а только для ознакомления. Используйте на свой страх и риск.
+
+Ansel Enabled - Off
+NVIDIA Predefined Ansel Usage - 0x00000000 ANSEL_ALLOW_DISALLOWED
+Будьте внимательны! Эти два параметра отключат фильтры Nvidia App.
+
+CUDA - Force P2 State - Off
+
+MAX_PENDING_CMD_BUFFERS - 0x00000001 1
+MCFORCEHOSTSTAGINGBUFFERSIZE - 0x00000020
+OGL_PULL_MEM_BUFFER_SHARED_THRESHOLD - 0x00000080
+OGL_PULL_MEM_DEFAULT_BUFFER_SIZE - 0x00000080
