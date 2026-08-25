@@ -8,7 +8,7 @@
 - [Direct download](https://audion.dev/get/windows-tools-by-max.mov/1.11.1/Audion_Windows_Tools_by_Max.mov_v1.11.1_Full.zip) — unmetered, no rate limits
 - [Project page](https://audion.dev/downloads/windows-tools-by-max.mov) — every version and how to install
 
-![The program window](docs/screenshot.png)
+<img src="docs/screenshot.png" alt="The program window" width="560">
 
 `SHA-256: da77a15e9471fe2bd21a63e428e9c7e814f27bdd47e50b41da31202642f49770`
 
