@@ -1,6 +1,6 @@
 {
   "schema": "audion.build_licenses.components.v1",
-  "generated_utc": "2026-08-24T17:49:44Z",
+  "generated_utc": "2026-09-01T04:42:08Z",
   "project_id": "audion-windows-tools-by-max-mov",
   "project_name": "Audion Windows Tools by Max.mov",
   "scan_root": "S:\\Release\\Audion Windows Tools by Max.mov",
@@ -24,7 +24,7 @@
         {
           "sha256": "7c77a44a8acd9b41fdc209864a8016b3d430b5d0e09309818d5b7444336df744",
           "display_name": "LICENSE-PowerShell.txt",
-          "source_path": "S:\\TOOLS\\Audion Build Licenses\\workspace\\runs\\20260824T174944Z_audion-windows-tools-by-max-mov_00e347cd\\collector_legal_files\\powershell-portable\\LICENSE-PowerShell.txt",
+          "source_path": "S:\\TOOLS\\Audion Build Licenses\\workspace\\runs\\20260901T044208Z_audion-windows-tools-by-max-mov_d6303b49\\collector_legal_files\\powershell-portable\\LICENSE-PowerShell.txt",
           "raw_size": 1095
         }
       ],

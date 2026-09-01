@@ -1,7 +1,7 @@
 # Audion Build Licenses Scan Report
 
 - Project: **Audion Windows Tools by Max.mov** (`audion-windows-tools-by-max-mov`)
-- Run: `20260824T174944Z_audion-windows-tools-by-max-mov_00e347cd`
+- Run: `20260901T044208Z_audion-windows-tools-by-max-mov_d6303b49`
 - Project root: `S:\Release\Audion Windows Tools by Max.mov`
 - Scan root: `S:\Release\Audion Windows Tools by Max.mov`
 - Output: `S:\Release\Audion Windows Tools by Max.mov\licenses`
@@ -18,7 +18,7 @@ No issues detected.
 
 | Component | Change | Old | New |
 |---|---|---:|---:|
-| PowerShell | `NEW_COMPONENT_APPROVED_PROFILE` | - | portable |
+| PowerShell | `UNCHANGED` | portable | portable |
 
 ## Scope
 

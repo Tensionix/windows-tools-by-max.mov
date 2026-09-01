@@ -25,7 +25,7 @@ CONSOLIDATED LEGAL DOCUMENTS
 [L-7c77a44a8acd] LICENSE-PowerShell.txt
 SHA256: 7c77a44a8acd9b41fdc209864a8016b3d430b5d0e09309818d5b7444336df744
 Components: PowerShell
-Captured from: S:\TOOLS\Audion Build Licenses\workspace\runs\20260824T174944Z_audion-windows-tools-by-max-mov_00e347cd\collector_legal_files\powershell-portable\LICENSE-PowerShell.txt
+Captured from: S:\TOOLS\Audion Build Licenses\workspace\runs\20260901T044208Z_audion-windows-tools-by-max-mov_d6303b49\collector_legal_files\powershell-portable\LICENSE-PowerShell.txt
 --------------------------------------------------------------------------------
 Copyright (c) Microsoft Corporation.
 

@@ -1,7 +1,7 @@
 {
   "schema": "audion.build_licenses.pack_manifest.v1",
-  "generated_utc": "2026-08-24T17:49:44Z",
-  "run_id": "20260824T174944Z_audion-windows-tools-by-max-mov_00e347cd",
+  "generated_utc": "2026-09-01T04:42:08Z",
+  "run_id": "20260901T044208Z_audion-windows-tools-by-max-mov_d6303b49",
   "project_id": "audion-windows-tools-by-max-mov",
   "project_name": "Audion Windows Tools by Max.mov",
   "scan_root": "S:\\Release\\Audion Windows Tools by Max.mov",
@@ -9,7 +9,7 @@
   "files": [
     {
       "name": "THIRD_PARTY_NOTICES.txt",
-      "sha256": "f2ae5e540df13b787e0791234434c7460e5a522e5196a689c5dd17c3358d9606",
+      "sha256": "dce38f5e98d4a3638a7682ad2eefbd0e91ab0550203c41aae56a8a6e86c93f25",
       "size": 2437
     },
     {
@@ -19,7 +19,7 @@
     },
     {
       "name": "COMPONENTS.json",
-      "sha256": "ed1f5d10286495fffccfc36507fd8d9df2cb6557650db84124e9ee2f58a78bd9",
+      "sha256": "941edf988a08a23a7ebd7c8b5b3426d32c7f7bbcc404c1646c48d7319e11c0ca",
       "size": 1825
     },
     {
@@ -29,8 +29,8 @@
     },
     {
       "name": "LICENSE_SCAN_REPORT.md",
-      "sha256": "515463068d08107a524c38d141ec77d7ad39b630999321f71f0d15f738e8e464",
-      "size": 767
+      "sha256": "54541dd2d45ac650da9c75545f81b1c14e3a2f55dc793a0497abe67c18886c10",
+      "size": 753
     }
   ]
 }
