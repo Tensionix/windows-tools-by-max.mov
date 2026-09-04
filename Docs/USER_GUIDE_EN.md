@@ -1,5 +1,23 @@
 # Audion Windows Tools by Max.mov
 
+**Contents**
+
+- [Quick Start](#quick-start)
+- [Interface Buttons](#interface-buttons)
+- [Card And Action Types](#card-and-action-types)
+- [Project Layout](#project-layout)
+- [Complete Section And Function Map](#complete-section-and-function-map)
+- [Operational Safety Reference](#operational-safety-reference)
+- [Recommended Order](#recommended-order)
+- [Driver And Update Review](#driver-and-update-review)
+- [Disk And Storage Review](#disk-and-storage-review)
+- [Display, GPU, And Cooling](#display-gpu-and-cooling)
+- [FPS And Latency](#fps-and-latency)
+- [Network, Browser, And Privacy](#network-browser-and-privacy)
+- [Recovery After A Problem](#recovery-after-a-problem)
+- [Completion Checklist](#completion-checklist)
+- [Interface Map Maintenance](#interface-map-maintenance)
+
 WPF interface for configuring Windows 11 after a clean install. It is an interactive companion-remix of [Max.mov's guide](https://www.youtube.com/watch?v=ITdecD6R0Yw), not a line-by-line visualizer. The app builds 13 sections from `Manifests\Section##.psd1`, renders action cards, and uses the shared `Engine\TweakEngine.psm1` engine.
 
 Microsoft recommendations and built-in Windows mechanisms have priority. `official` cards use documented sources from Microsoft, the hardware vendor, or the product author; `Max.mov guide` marks steps that definitely appear in the Max.mov guide; `Max.mov approved` is used only for a recommendation or implementation that was separately and explicitly approved; `unofficial` preserves alternative and experimental solutions without presenting them as the official path. See `VIDEO_COMPANION_EN.md` for the exact positioning relative to the video.
