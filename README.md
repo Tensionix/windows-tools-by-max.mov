@@ -8,14 +8,14 @@
   <a href="https://github.com/Tensionix/windows-tools-by-max.mov/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/Tensionix/windows-tools-by-max.mov?style=flat-square&color=5fd08a&logo=apache&logoColor=white&cacheSeconds=3600"></a>
 </p>
 
-**Version 1.11.3** · 2026-09-18 · 131.2 MB
+**Version 1.11.3** · 2026-09-18 · 27.5 MB
 
-- [Direct download](https://dl.audion.dev/windows-tools-by-max.mov/1.11.3/Audion_Windows_Tools_by_Max.mov_v1.11.3_Full.zip) — unmetered, no rate limits
+- [Direct download](https://dl.audion.dev/windows-tools-by-max.mov/1.11.3/Audion_Windows_Tools_by_Max.mov_v1.11.3.zip) — unmetered, no rate limits
 - [Project page](https://audion.dev/downloads/windows-tools-by-max.mov) — every version and how to install
 
 <p align="center"><img src="docs/screenshot.png" alt="The program window" width="560"></p>
 
-`SHA-256: cc55754379f92494ef62bce8e0e5e9c4e5706ea8ee5ca092573b6bed73e578bf`
+`SHA-256: afca5b1b01bf4d168db1208e8c6e92a5b13f13184de9c6ff0ac4dc6659a221b3`
 
 ---
 
