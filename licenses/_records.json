@@ -1,5 +1,18 @@
 [
   {
+    "name": "Audion launcher",
+    "version": "bundled",
+    "license": "Audion own code",
+    "source": "audion-first-party",
+    "license_files": [
+      "licenses/THIRD_PARTY_NOTICES.txt"
+    ],
+    "license_fingerprint": "3d34b48b986e72171636407e8241394892758ca2f4b323dd5023b828569cea85",
+    "legal_document_hashes": [
+      "f9aa24d322c0d39ff478dbcd0b3df9fa5514a44419e33fde66421029ec02a985"
+    ]
+  },
+  {
     "name": "PowerShell",
     "version": "portable",
     "license": "MIT",

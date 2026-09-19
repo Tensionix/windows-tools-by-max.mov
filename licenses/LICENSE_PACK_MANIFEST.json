@@ -1,16 +1,16 @@
 {
   "schema": "audion.build_licenses.pack_manifest.v1",
-  "generated_utc": "2026-09-04T02:36:53Z",
-  "run_id": "20260904T023652Z_audion-windows-tools-by-max-mov_de3aa1ce",
+  "generated_utc": "2026-09-18T03:03:00Z",
+  "run_id": "20260918T030300Z_audion-windows-tools-by-max-mov_c94350d4",
   "project_id": "audion-windows-tools-by-max-mov",
   "project_name": "Audion Windows Tools by Max.mov",
-  "scan_root": "S:\\Release\\Audion Windows Tools by Max.mov",
-  "output_dir": "S:\\Release\\Audion Windows Tools by Max.mov\\licenses",
+  "scan_root": "S:\\Releases\\Audion Windows Tools by Max.mov",
+  "output_dir": "S:\\Releases\\Audion Windows Tools by Max.mov\\licenses",
   "files": [
     {
       "name": "THIRD_PARTY_NOTICES.txt",
-      "sha256": "e402ccd08a8f78a07042e83566802cc470a85af9539f7405841267fe360da210",
-      "size": 2437
+      "sha256": "142cff0f30347252094ece2f413936b44228060587b58418be6e95e1d6f0f364",
+      "size": 3519
     },
     {
       "name": "SOURCE_CODE_AVAILABILITY.txt",
@@ -19,18 +19,18 @@
     },
     {
       "name": "COMPONENTS.json",
-      "sha256": "9e6df4ad2c5cef9287a7761c139e57bbbe82f2907863fa327a53d8c6590550c3",
-      "size": 1825
+      "sha256": "9a41d073431fe89c7ce9a28b3188cca56e54f7c88984625b9a7d6112a4dd574c",
+      "size": 3342
     },
     {
       "name": "_records.json",
-      "sha256": "809f2d7aa4d1cd5264c92a491b0f1080b04aa061bfbae05dea1687a6a260ed03",
-      "size": 397
+      "sha256": "15fa01eb9e7a5ffb8245a9f86f422dc5181f62905df7e719e3c39b13bd5d8305",
+      "size": 809
     },
     {
       "name": "LICENSE_SCAN_REPORT.md",
-      "sha256": "9aeb8407ec06da1a00f1de424337d56796fbecfa2aba08ba4bd69cdf4feda28a",
-      "size": 753
+      "sha256": "566e60250a0493209207969e0cbea46010dd53852c57975f7b69839ae8202979",
+      "size": 825
     }
   ]
 }

@@ -9,7 +9,14 @@ Repeated legal texts are included once and referenced by document ID.
 
 BUNDLED COMPONENTS
 --------------------------------------------------------------------------------
-1. PowerShell
+1. Audion launcher
+   Version: bundled
+   License: Audion own code
+   Source type: audion-first-party
+   Provider: not recorded
+   Legal documents: L-f9aa24d322c0
+
+2. PowerShell
    Version: portable
    License: MIT
    Source type: baseline-runtime
@@ -25,7 +32,7 @@ CONSOLIDATED LEGAL DOCUMENTS
 [L-7c77a44a8acd] LICENSE-PowerShell.txt
 SHA256: 7c77a44a8acd9b41fdc209864a8016b3d430b5d0e09309818d5b7444336df744
 Components: PowerShell
-Captured from: S:\TOOLS\Audion Build Licenses\workspace\runs\20260904T023652Z_audion-windows-tools-by-max-mov_de3aa1ce\collector_legal_files\powershell-portable\LICENSE-PowerShell.txt
+Captured from: S:\TOOLS\Audion Build Licenses\workspace\runs\20260918T030300Z_audion-windows-tools-by-max-mov_c94350d4\collector_legal_files\powershell-portable\LICENSE-PowerShell.txt
 --------------------------------------------------------------------------------
 Copyright (c) Microsoft Corporation.
 
@@ -48,5 +55,20 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+================================================================================
+
+[L-f9aa24d322c0] NOTICE-Audion-Launcher.md
+SHA256: f9aa24d322c0d39ff478dbcd0b3df9fa5514a44419e33fde66421029ec02a985
+Components: Audion launcher
+Captured from: S:\TOOLS\Audion Build Licenses\workspace\runs\20260918T030300Z_audion-windows-tools-by-max-mov_c94350d4\collector_legal_files\audion-launcher-bundled\NOTICE-Audion-Launcher.md
+--------------------------------------------------------------------------------
+# Собственный лаунчер Audion
+
+## Start.exe
+
+Крошечная программа запуска, написанная для сборок Audion: находит рядом с
+собой точку входа проекта и передаёт ей управление. Стороннего кода не
+содержит, лежит в корне большинства проектов флота.
 
 ================================================================================
